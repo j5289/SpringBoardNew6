@@ -1,14 +1,25 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<html>
-<head>
-	<title>Home</title>
-</head>
-<body>
+
+<%@ include file="include/header.jsp" %>
+
 <h1>
-	Hello world!  
+	Hello world!  ITWILL BUSAN
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-</body>
-</html>
+
+
+
+<div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Messages</span>
+              <span class="info-box-number">1,410</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        
+<button type="button" class="btn btn-block btn-danger bg-orange">Danger</button>
