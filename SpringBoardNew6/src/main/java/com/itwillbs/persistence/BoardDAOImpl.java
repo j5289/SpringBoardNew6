@@ -1,5 +1,8 @@
 package com.itwillbs.persistence;
 
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,8 +13,22 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BoardDAOImpl implements BoardDAO{
 	
+	//SqlSession 객체를 주입
+	@Inject
+	private SqlSession sqlSession;
+	
+	//boardMapper.xml 접근 이름
+	private static final String NAMESPACE
+		="com.itwillbs.mapper.BoardMapper.";
+	
+	
 	@Override
 	public String getServerTime() {
-		return null;
+		//디비연결
+		//해당 SQL구문 호출
+		String time = 
+		sqlSession.selectOne(NAMESPACE+"getServerTime");
+		
+		return time;
 	}
 }

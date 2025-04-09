@@ -76,7 +76,7 @@
 	                         , SQL 실행,MyBatis 설정,mapper 설정  -->
 	
 	<!-- 외부에서 생성된 객체(bean)를 등록 -->
-<!-- 	<context:component-scan base-package=""/> -->
+	<context:component-scan base-package="com.itwillbs"/> 
 	
 	
 	
