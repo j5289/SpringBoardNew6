@@ -6,5 +6,8 @@
   <!-- MyBatis 설정파일 -->
   <configuration>
   
+  	<typeAliases>
+  		<package name="com.itwillbs.domain"/>
+  	</typeAliases> 
   
   </configuration>
