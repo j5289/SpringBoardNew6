@@ -2,8 +2,10 @@ package com.itwillbs.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * AOP 개념 사용
@@ -24,11 +26,17 @@ public class CommonExceptionAdvice {
 	//Exception - 모든 예외처리를 가능하게 함(업캐스팅 가능하게 하는)
 	//@ExceptionHandler(예외처리 객체) 
 	@ExceptionHandler(Exception.class) 
-	public String common(Exception e) {
+	public String common(Model model, Exception e) {
 		logger.info("CommonExceptionAdvice_common() 실행");
 		logger.info("예외 발생!");
 		
 		logger.info(""+e.toString()); //어떤 것 때문에 예외가 발생했는지 확인 가능!
+		model.addAttribute("e", e);
+		
+		//ModelAndView 객체 사용해서 전달 
+		//		ModelAndView mav = new ModelAndView();
+		//		mav.setViewName(viewName);
+		//		mav.addObject(attributeValue);
 		
 		return "ITWILL";
 	}
