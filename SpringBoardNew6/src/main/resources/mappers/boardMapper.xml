@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.itwillbs.mapper.BoardMapper">
+
+	<!-- 시간정보 조회 -->
+	<select id="getServerTime" resultType="string">
+		select now()
+	</select>
+	
+	<!-- 게시판 글쓰기 -->
+	<insert id="insertBoard">
+		insert into tbl_board (title,content,writer) 
+		values(#{title},#{content},#{writer})
+	</insert>
+	<!-- 게시판 글쓰기 -->
+	
+	<!-- 게시판 전체 목록조회 -->
+	<select id="listAll" resultType="BoardVO">
+		select * from tbl_board	
+		order by bno desc
+	</select>	
+	<!-- 게시판 전체 목록조회 -->
+	
+	<!-- 게시판 특정 글정보 조회 -->
+	<select id="getBoard" resultType="BoardVO">
+		select * from tbl_board 
+		where bno=#{bno}	
+	</select>
+	<!-- 게시판 특정 글정보 조회 -->
+		
+	<!-- 특정 글 조회수 1증가 -->
+	<update id="updateViewcnt">
+		update tbl_board set viewcnt=viewcnt + 1 
+		where bno=#{bno} 		
+	</update>		
+	<!-- 특정 글 조회수 1증가 -->	
+	
+	<!-- 특정 게시판 글 수정 -->
+	<update id="updateBoard">
+		update tbl_board  
+		set title=#{title}, content=#{content},writer=#{writer} 
+		where bno=#{bno} 
+	</update>
+	<!-- 특정 게시판 글 수정 -->
+
+	<!-- 특정 게시판 글 삭제 -->
+	<delete id="deleteBoard">
+		delete from tbl_board 
+		where bno = #{bno}
+	</delete>				
+	<!-- 특정 게시판 글 삭제 -->			
+
+	
+</mapper>  
